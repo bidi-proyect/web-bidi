@@ -22,6 +22,7 @@
     justify-content: center;
     height: 100vh auto;
     background-color: #7CC2D1;
+    position: relative;
 }
 
 .form-container {
@@ -114,7 +115,16 @@
     margin-bottom: 19px;
   }
 
+  .back {
+    position: absolute;
+    top: 15px;
+    left: 180px;
+  }
   
+  .back .back-image {
+    width: 30px;
+    height: 30px;
+  }
 
   @media (max-width: 600px) {
     .form-container {
@@ -125,7 +135,8 @@
 
   .modal-exceptions {
     position: fixed;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(46, 197, 235, 0.418);
+    backdrop-filter: blur(3px);
     top: 0;
     width: 100%;
     height: 100%;
@@ -182,16 +193,16 @@
   }
   .modal-img-box img {
 
-    animation: imageRotateAndScale 1s forwards; 
+    animation: imageScale 0.3s forwards; 
     transform-origin: center; 
   }
   
-  @keyframes imageRotateAndScale {
+  @keyframes imageScale {
     from {
-      transform: rotate(0deg) scale(0.5); 
+      transform: scale(2.5); 
     }
     to {
-      transform: rotate(360deg) scale(1);
+      transform: scale(1);
      
     }
   }

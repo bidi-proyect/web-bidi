@@ -1,8 +1,15 @@
 <div class="main-container">
   <div class="container">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="back">
+      <a routerLink="/login" class="register-link">
+        <img src="../assets/images/backarrow.png" alt="Volver al inicio" class="back-image">
+      </a>
+    </div>
+    
 
     <form [formGroup]="confirmForm" class="form-container">
+      
       <p class="form-title">CAMBIO DE CONTRASEÑA</p>
       <p class="form-sub">Ingrese el código que se le fue enviado.</p>
 

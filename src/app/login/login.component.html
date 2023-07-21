@@ -1,7 +1,13 @@
 <div class="main-container">
   <div class="container">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <form [formGroup]="loginForm" class="form-container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="back">
+      <a routerLink="/inicio" class="register-link">
+        <img src="../assets/images/backarrow.png" alt="Volver al inicio" class="back-image">
+      </a>
+    </div>
+
+    <form [formGroup]="loginForm" class="form-container">
  
     <p class="form-title">LOGIN</p>
  
@@ -51,10 +57,8 @@
        
    <div class="underline"> _________________    o    _________________</div>
    <a routerLink="/register" class="register-link">¿No tienes cuenta? Regístrate aquí</a>
-
-
   </form>
 
-  <div>
-   
-  </div>
+ 
+  
+

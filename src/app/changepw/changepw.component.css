@@ -20,6 +20,7 @@
     justify-content: center;
     height: auto;
     background-color: #7CC2D1;
+ 
 }
 
 .form-container {
@@ -161,7 +162,8 @@
 
 .modal-exceptions {
     position: fixed;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(46, 197, 235, 0.418);
+    backdrop-filter: blur(3px);
     top: 0;
     width: 100%;
     height: 100%;
