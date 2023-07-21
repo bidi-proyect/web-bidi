@@ -1,0 +1,117 @@
+<div class="main-container">
+  <div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <form [formGroup]="registerForm" class="form-container">
+
+      <p class="form-title">REGISTRATE</p>
+
+      <div class="form-nombre">
+        <input formControlName="name" class="form-control" type="text" placeholder="Nombre:*" (input)="onNameInput($event)">
+      </div>
+      
+      <div class="form-apellido">
+        <input formControlName="secondName" class="form-control" type="text" placeholder="Apellido:*" (input)="onSecondNameInput($event)">
+      </div>
+      
+      
+      <div class="form-telefono">
+        <input formControlName="telefono" class="form-control" type="text" placeholder="Telefono:*" (input)="sanitizeTelefono()" >
+      </div>
+
+      <div class="form-email">
+        <input formControlName="email" class="form-control" type="email" aria-describedby="emailHelp" placeholder="Correo:*"> 
+      </div>
+
+      <div class="form-password">
+        <div class="password-input">
+          <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" formControlName="password" placeholder="Contraseña:*" oncopy="return false" onpaste="return false">
+          <div class="password-toggle">
+            <img [src]="showPassword ? './assets/images/abierto.png' : './assets/images/cerrado.png'" alt="ojo" (click)="togglePasswordVisibility('password')">
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="confirmPassword-input">
+        <div class="password-input">
+          <input type="{{ showConfirmPassword ? 'text' : 'password' }}" class="form-control" formControlName="confirmPassword" placeholder="Confirma Contraseña:* " oncopy="return false" onpaste="return false">
+          <div class="password-toggle">
+            <img [src]="showConfirmPassword ? './assets/images/abierto.png' : './assets/images/cerrado.png'" alt="ojo" (click)="togglePasswordVisibility('confirmPassword')">
+          </div>
+        </div>
+      </div>
+      
+      <button type="submit" (click)="register()" class="btn-primary">Enviar codigo</button>
+
+      <div class="underline"> _________________    o    _________________</div>
+      <a href="login" class="register-link" >¿Ya tienes cuenta? Haz click aquí</a>    
+    </form>
+
+    <div class="error">
+      Lista de campos que tiene que cumplir:
+      <div>
+        <div *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)" class="alert alert-danger alert-container">
+          <div *ngIf="registerForm.controls['name'].errors?.['required']">
+            *Llene el campo de nombre.
+          </div>
+        </div>
+
+        <div *ngIf="registerForm.controls['secondName'].invalid && (registerForm.controls['secondName'].dirty || registerForm.controls['secondName'].touched)" class="alert alert-danger alert-container">
+          <div *ngIf="registerForm.controls['secondName'].errors?.['required']">
+            *Llene el campo de apellido.
+          </div>
+        </div>
+
+        <div *ngIf="registerForm.controls['telefono'].invalid && (registerForm.controls['telefono'].dirty || registerForm.controls['telefono'].touched)" class="alert alert-danger alert-container">
+          <div *ngIf="registerForm.controls['telefono'].hasError('required')">
+            *Llene el campo de telefono.
+          </div>
+          <div *ngIf="registerForm.controls['telefono'].hasError('minlength')">
+            *El número de teléfono debe tener al menos 10 dígitos.
+          </div>
+          <div *ngIf="registerForm.controls['telefono'].hasError('maxlength')">
+            *El número de teléfono no puede tener más de 10 dígitos.
+          </div>
+        </div>
+
+        <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" class="alert alert-danger alert-container">
+          <div *ngIf="registerForm.controls['email'].errors?.['required']">
+            *Llene el campo de email.
+          </div>
+      
+          <div *ngIf="registerForm.controls['email'].errors?.['email']">
+            *Email inválido.
+          </div>
+
+          <div *ngIf="registerForm.controls['email'].errors?.['pattern']">
+            *Dominio invalido.
+          </div>
+        </div>
+
+        <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" class="alert alert-danger alert-container">
+          <div *ngIf="registerForm.controls['password'].errors?.['required']">
+            *Llene el campo de contraseña.
+          </div>
+      
+          <div *ngIf="registerForm.controls['password'].errors?.['minlength']">
+            *La contraseña debe ser mínimo de 8 caracteres.
+          </div>
+      
+          <div *ngIf="registerForm.controls['password'].errors?.['pattern']">
+            *Ponga al menos una mayúscula, una minúscula, un número y un carácter especial en la contraseña.
+          </div>
+        </div>
+
+        <div *ngIf="registerForm.controls['confirmPassword'].invalid && (registerForm.controls['confirmPassword'].dirty || registerForm.controls['confirmPassword'].touched)" class="alert alert-danger alert-container">
+          <div *ngIf="registerForm.controls['confirmPassword'].errors?.['required']">
+            *Llene el campo que confirma la contraseña.
+          </div>
+          <div *ngIf="registerForm.controls['confirmPassword'].errors?.['passwordMismatch']">
+            *La contraseña y la confirmación de contraseña no coinciden.
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

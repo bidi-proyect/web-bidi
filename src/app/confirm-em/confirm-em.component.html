@@ -1,0 +1,79 @@
+<div class="main-container">
+  <div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <form [formGroup]="confirmForm" class="form-container">
+      <p class="form-title">CAMBIO DE CONTRASEÑA</p>
+      <p class="form-sub">Ingrese el código que se le fue enviado.</p>
+
+      <div class="form-code">
+        <div class="inputs-container">
+          <input formControlName="confirm" type="text" #txt1 maxlength="1" (keyup)="move($event, '', txt1, txt2)" (input)="sanitizeConfirm()">
+          <input formControlName="confirm1" type="text" #txt2 maxlength="1" (keyup)="move($event, txt1, txt2, txt3)" (input)="sanitizeConfirm1()">
+          <input formControlName="confirm2" type="text" #txt3 maxlength="1" (keyup)="move($event, txt2, txt3, txt4)" (input)="sanitizeConfirm2()">
+          <input formControlName="confirm3" type="text" #txt4 maxlength="1" (keyup)="move($event, txt3, txt4, txt5)" (input)="sanitizeConfirm3()">
+          <input formControlName="confirm4" type="text" #txt5 maxlength="1" (keyup)="move($event, txt4, txt5, txt6)" (input)="sanitizeConfirm4()">
+          <input formControlName="confirm5" type="text" #txt6 maxlength="1" (keyup)="move($event, txt5, txt6, '')" (input)="sanitizeConfirm5()">
+        </div>
+      
+        <div class="error-container">
+
+        <div *ngIf="confirmForm.controls['confirm'].invalid && (confirmForm.controls['confirm'].dirty || confirmForm.controls['confirm'].touched)" class="alert alert-danger">
+          <div *ngIf="confirmForm.controls['confirm'].hasError('required')">
+          </div>
+        </div>
+
+        <div *ngIf="confirmForm.controls['confirm1'].invalid && (confirmForm.controls['confirm1'].dirty || confirmForm.controls['confirm1'].touched)" class="alert alert-danger">
+          <div *ngIf="confirmForm.controls['confirm1'].hasError('required')">
+          </div>
+        </div>
+
+        <div *ngIf="confirmForm.controls['confirm2'].invalid && (confirmForm.controls['confirm2'].dirty || confirmForm.controls['confirm2'].touched)" class="alert alert-danger">
+          <div *ngIf="confirmForm.controls['confirm2'].hasError('required')">
+          </div>
+        </div>
+
+        <div *ngIf="confirmForm.controls['confirm3'].invalid && (confirmForm.controls['confirm3'].dirty || confirmForm.controls['confirm3'].touched)" class="alert alert-danger">
+          <div *ngIf="confirmForm.controls['confirm3'].hasError('required')">
+          </div>
+
+          <div *ngIf="confirmForm.controls['confirm4'].invalid && (confirmForm.controls['confirm4'].dirty || confirmForm.controls['confirm4'].touched)" class="alert alert-danger">
+            <div *ngIf="confirmForm.controls['confirm4'].hasError('required')">
+            </div>
+          </div>
+
+        </div>
+        <div *ngIf="confirmForm.controls['confirm5'].invalid && (confirmForm.controls['confirm5'].dirty || confirmForm.controls['confirm5'].touched)" class="alert alert-danger">
+          <div *ngIf="confirmForm.controls['confirm5'].hasError('required')">
+          </div></div>
+        </div>
+      </div>
+
+      <a href="/confirm" class="register-link">Click aquí para reenviar el código</a>
+
+      <button (click)="showModal = true" type="submit" (click)="confirm()"  class="btn-primary">Comprobar</button>
+    </form>
+
+    <div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-exceptions" *ngIf="showModal">
+
+  <div class="modal-exceptions-content">
+
+    <div class="modal-img-box">
+
+      <img src="../../../assets/images/error.svg" alt="">
+      <p class="modal-main-tittle">CODIGO INCORRECTO O EXPIRADO</p>
+      <div class="modal-buttons-box">
+        <button class="modal-button" (click)="closePopup()">OK</button>
+
+    </div>
+
+  </div>
+
+</div>

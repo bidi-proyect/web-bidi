@@ -1,0 +1,80 @@
+<div class="main-container">
+    <div class="container">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <form [formGroup]="changepwForm" class="form-container">
+  
+        <p class="form-title">CAMBIO DE CONTRASEÑA</p>
+
+        <div class="form-group">
+          <label for="pw1" class="form-label">Contraseña*:</label>
+          <div class="password-input">
+            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" formControlName="password"  oncopy="return false" onpaste="return false">
+            <div class="password-toggle">
+              <img [src]="showPassword ? './assets/images/abierto.png' : './assets/images/cerrado.png'" alt="ojo" (click)="togglePasswordVisibility('password')">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="pw2" class="form-label">Confirmar contraseña*:</label>
+          <div class="password-input">
+            <input type="{{ showConfirmPassword ? 'text' : 'password' }}" class="form-control" formControlName="confirmPassword"  oncopy="return false" onpaste="return false">
+            <div class="password-toggle">
+              <img [src]="showConfirmPassword ? './assets/images/abierto.png' : './assets/images/cerrado.png'" alt="ojo" (click)="togglePasswordVisibility('confirmPassword')">
+            </div>
+          </div>
+        </div>
+        
+        
+        <button class="btn-primary" type="submit" (click)="confirm()">Confirmar</button>
+      </form>
+    
+    
+      <div class="error">
+        Requerimientos para cambiar la contraseña:
+        <div *ngIf="changepwForm.controls['password'].invalid && (changepwForm.controls['password'].dirty || changepwForm.controls['password'].touched)" class="alert alert-danger alert-container">
+            <div *ngIf="changepwForm.controls['password'].errors?.['required']">
+              *Llene el campo de contraseña.
+            </div>
+        
+            <div *ngIf="changepwForm.controls['password'].errors?.['minlength']">
+              *La contraseña debe ser mínimo de 8 caracteres.
+            </div>
+        
+            <div *ngIf="changepwForm.controls['password'].errors?.['pattern']">
+              *Ponga al menos una mayúscula, una minúscula, un número y un carácter especial en la contraseña.
+            </div>
+          </div>
+          
+          <div *ngIf="changepwForm.controls['confirmPassword'].invalid && (changepwForm.controls['confirmPassword'].dirty || changepwForm.controls['confirmPassword'].touched)" class="alert alert-danger alert-container">
+            <div *ngIf="changepwForm.controls['confirmPassword'].errors?.['required']">
+              *Llene el campo que confirma la contraseña.
+            </div>
+            <div *ngIf="changepwForm.controls['confirmPassword'].errors?.['passwordMismatch']">
+              *La contraseña y la confirmación de contraseña no coinciden.
+            </div>
+          </div>
+          
+      
+      </div>
+
+
+      <div class="modal-exceptions" *ngIf="showModal">
+
+        <div class="modal-exceptions-content">
+      
+          <div class="modal-img-box">
+      
+            <img src="../../../assets/images/ok.svg" alt="">
+            <p class="modal-main-tittle">Cambios Guardados</p>
+            <div class="modal-buttons-box">
+              <button class="modal-button" type="submit" (click)="redirectToLogin()">OK</button>
+      
+          </div>
+      
+        </div>
+      
+      </div>
+
+  
+  

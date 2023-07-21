@@ -1,0 +1,174 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #7CC2D1;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: #7CC2D1;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 30vw;
+    height: auto;
+    padding: 20px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    margin: 2m;
+}
+
+.form-nombre,.form-apellido,.form-telefono, .form-email {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 3%;
+}
+
+
+.confirmPassword-input {
+    display: flex;
+    align-items: left;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    }
+
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2%;
+}
+
+.alert-container {
+    text-align: center;
+    color: red;
+
+}
+
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    background: white;
+}
+
+.password-toggle i {
+    font-size: 18px;
+}
+
+
+.btn-primary {
+    background-color: #FFB600;
+    border: none;
+    color: black;
+    width: 190px;
+    height: 40px;
+    margin: 15px auto;
+    display: block;
+    font-weight: bold;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 15px 15px 15px 15px;
+}
+
+.register-link {
+    color: #227EA6;
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+
+.form-control {
+    border: none;
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 8px;
+    background-color: white;
+    border-radius: 9px 9px 9px 9px;
+}
+
+.form-title {
+    color: #124734;
+    text-align: center;
+    height: 20px;
+    font-size: 55px;
+    padding-bottom: 20%;
+    margin: 2m;
+}
+
+
+.underline {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 7px;
+    background-color: white;
+    margin: 2m;
+    margin-left: 9%; 
+    text-align: center;
+    border: 2px solid black;
+}
+
+
+@media (max-width: 626px) {
+    .form-container {
+        height: 20vh;
+    }
+}
+
+
+
+
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 109, 253, 0);
+}
+
+.form-code:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 109, 253, 0);
+}

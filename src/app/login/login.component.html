@@ -1,0 +1,60 @@
+<div class="main-container">
+  <div class="container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <form [formGroup]="loginForm" class="form-container">
+ 
+    <p class="form-title">LOGIN</p>
+ 
+    <div class="form-email">
+      <label for="exampleInputEmail1" class="form-label">Correo*:</label>
+      <input formControlName="email" class="form-control" type="email" aria-describedby="emailHelp" placeholder="ejemplo@ejemplo.com">
+      
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger alert-container">
+        <div *ngIf="email.errors?.['required']">
+          Llene este campo.
+        </div>
+  
+        <div *ngIf="email.errors?.['email']">
+          Email invalido.
+        </div>
+
+        <div *ngIf="email.errors?.['pattern']">
+          Dominio invalido.
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-password">
+      <label for="exampleInputPassword1" class="form-label">Contraseña*:</label>
+      <div class="password-input">
+        <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" formControlName="password" placeholder="........">
+        <button type="button" class="password-toggle" (click)="togglePasswordVisibility()">
+          <img [src]="showPassword ? './assets/images/abierto.png' : './assets/images/cerrado.png'" alt="ojo">
+        </button>
+      </div>
+    
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger alert-container">
+        <div *ngIf="password.errors?.['required']">
+          Llene este campo.
+        </div>       
+  
+        <div *ngIf="password.errors?.['minlength']">
+         Debe ser mínimo de 8 caracteres.
+        </div>
+      </div>
+    </div>
+    <a href="recovery" class="register-link" >¿Olvidaste la contraseña?</a> 
+  
+    <button type="submit" (click)="login()" class="btn-primary">Iniciar sesión</button>
+
+       
+   <div class="underline"> _________________    o    _________________</div>
+   <a routerLink="/register" class="register-link">¿No tienes cuenta? Regístrate aquí</a>
+
+
+  </form>
+
+  <div>
+   
+  </div>

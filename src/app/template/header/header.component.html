@@ -1,0 +1,33 @@
+<div class="top">
+  <span></span>
+</div>
+
+<nav class="navbar" *ngIf="!hideHeader">
+  <div class="navbar-logo">
+    <img src="https://www.credibanco.com/wp-content/uploads/2022/11/logo-web-principal-credibanco.png" srcset="https://www.credibanco.com/wp-content/uploads/2022/11/logo-web-principal-credibanco.png 1x, https://www.credibanco.com/wp-content/uploads/2022/11/logo-retina-web-principal-credibanco.png 2x" width="229" height="49" alt="Credibanco Logo" data-retina_logo_url="https://www.credibanco.com/wp-content/uploads/2022/11/logo-retina-web-principal-credibanco.png">
+  </div>
+
+  <ul class="navbar-ul">
+    <li class="li">
+      <a class="nav-link" href="/inicio">
+        <img src="../assets/images/home.png">
+        <span>Inicio</span>
+      </a>   
+    </li>
+
+    <li class="li">
+      <a class="nav-link" routerLink="/login" (click)="setHideHeader()">
+        <img src="../assets/images/login.png">
+        <span>Login</span>
+      </a>
+    </li>
+
+    <li class="li">
+      <a class="nav-link" href="pagina3.html">
+        <img src="../assets/images/User.png">
+        <span>Usuario</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+

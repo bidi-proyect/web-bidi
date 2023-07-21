@@ -1,0 +1,35 @@
+<div class="main-container">
+    <div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+TlH+bJNDJnEN4e0O6V93K0RCEzWiR6/z9yH76ZsoaW0LHJDDqxG1omJHbhoyEw3B64gKxgD+PLaOyezTazFfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <form [formGroup]="rephoneForm" class="form-container">
+
+    <p class="form-title">ENVÍO DE CODIGO</p>
+
+    <p class="form-sub">Ingresé su <b>numero de telefono</b> para enviarle un codigo de recuperacion.</p>
+    
+    <div class="form-telefono">
+    <label for="telefono" class="form-label">Telefono*:</label>
+    <input formControlName="telefono" class="form-control" type="text" placeholder="1234567890" (input)="sanitizeTelefono()" >
+
+    <div *ngIf="rephoneForm.controls['telefono'].invalid && (rephoneForm.controls['telefono'].dirty || rephoneForm.controls['telefono'].touched)" class="alert alert-danger alert-container">
+      <div *ngIf="rephoneForm.controls['telefono'].hasError('required')">
+        *Llene el campo de telefono.
+      </div>
+      <div *ngIf="rephoneForm.controls['telefono'].hasError('minlength')">
+        *El número de teléfono debe tener al menos 10 dígitos.
+      </div>
+      <div *ngIf="rephoneForm.controls['telefono'].hasError('maxlength')">
+        *El número de teléfono no puede tener más de 10 dígitos.
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" (click)="recovery()" class="btn-primary">Enviar</button>
+
+  <div class="underline"> _________________    o    _________________</div>
+
+  <a href="recovery" class="email-link" ><b>Prueba con tu email aquí</b></a>    
+  
+    </form>
+    <div>
+    </div>
